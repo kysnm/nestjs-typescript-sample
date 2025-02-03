@@ -7,7 +7,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(@Res({ passthrough: true }) response: Response): string {
+  getHello(@Res({ passthrough: true }) response: Response): { Hello: string } {
     response.cookie('_nestjs-typescript-sample', 'cookieValue');
     return this.appService.getHello();
   }
