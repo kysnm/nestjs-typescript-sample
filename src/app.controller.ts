@@ -8,7 +8,10 @@ export class AppController {
 
   @Get()
   getHello(@Res({ passthrough: true }) response: Response): { Hello: string } {
-    response.cookie('_nestjs-typescript-sample', 'cookieValue');
+    response.cookie('_nestjs-typescript-sample', 'cookieValue', {
+      sameSite: 'none',
+      secure: true,
+    });
     return this.appService.getHello();
   }
 }
