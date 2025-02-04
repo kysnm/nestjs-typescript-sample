@@ -8,6 +8,7 @@ export class AppController {
 
   @Get()
   getHello(@Res({ passthrough: true }) response: Response): { Hello: string } {
+    response.setHeader('Access-Control-Allow-Credentials', 'true');
     response.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     response.cookie('_nestjs-typescript-sample', 'cookieValue', {
       sameSite: 'none',
